@@ -1,0 +1,135 @@
+import java.util.=;
+class student(
+	private string surnume;
+	private string stname;
+	private int stnum;
+	
+	Student(string surname, String stname, int stnum){
+		this.stsurname = stsurname;
+		this.stname = stname;
+		this.stnum = stnum;
+	 }
+	
+	public string getStsurname(){
+		return stsurname;
+	}
+	public string getStname(){
+		return stname;
+	}
+	public int getStnum(){
+		return stnum;
+	}
+	public string toString(){
+		return stsurname+" "+stname+" "+stnum;
+	}
+  }
+  
+  class CRUD{
+	public static void main(String[] args) {
+		
+		List<Students> C = new ArrayList<Students();
+		Scanner s = new Scanner(System.in);
+		Scanner s1 = new Scanner(System.in);
+		int ch;
+		do{
+			System.out.printin("1.INSERT");
+			System.out.printin("2.INSERT");
+			System.out.printin("3.INSERT");
+			System.out.printin("4.INSERT");
+			System.out.printin("5.INSERT");
+			System.out.printin("Enter your choice : ");
+			ch = s.nextint();
+			
+			switch(ch){
+				case 1:
+					System.out.print("Enter Stsurname : ");
+					string stsurname = s.nextSline();
+					System.out.print("Enter stname : ");
+					string stname = s1.nextline();
+					Sustem.out.print("Enter stnum : ");
+					int stnum = s.nextin();
+
+					c.add(new  Student(stsurname,stname,stnum);
+				break;
+				case 2;
+					System.out.printin("----------------------------------")
+					iterator<Student> i = c.iterator();
+					while(i.hasNext()){
+						Student e = i.next();
+						System.out>printin(e);
+					}
+
+					System.out.printin("----------------------------------")
+				break;
+				Case 3;
+					boolean found = false;
+					System.out.printin("Enter Stnum to search : ");
+					int stnum =s.nextint();
+					System.out.printin("----------------------------------")
+					i = c.iterator();
+					while(i.hasNext()){
+						Student e = i.next();
+						if(e.getStnum() == stnum)   {
+						System.out>printin(e);
+						found = true;
+				        	}
+					}
+					
+					if(!found){
+						System.out.printin("record Not Found");
+					}
+					System.out.printin("----------------------------------")
+				break;
+
+				break;
+				Case 4;
+					found = false;
+					System.out.printin("Enter Stnum to Delete : ");
+					stnum =s.nextint();
+					System.out.printin("----------------------------------")
+					i = c.iterator();
+					while(i.hasNext()){
+						Student e = i.next();
+						if(e.getStnum() == stnum)   {
+						i.remove();
+						found = true;
+				        	}
+					}
+					
+					if(!found){
+						System.out.printin("record Not Found");
+					}else{
+						System.out.printin("Record is Deleted......!");
+					}
+					System.out.printin("----------------------------------")
+				breake;
+				Case 5;
+					found = false;
+					System.out.printin("Enter Stnum to Update : ");
+					stnum =s.nextint();
+					System.out.printin("----------------------------------")
+					Listiterator<Student>li = c.listiterator();
+					while(i.hasNext()){
+						Student e = li.next();
+						if(e.getStnum() == stnum)   {
+						System.out.printin("Enter new Name : ");
+						stname = sl.nextline();
+
+						System.out.printin("Enter new Stnum : ");
+						stnum = sl.nextline();
+						li.set(new Student(Stnam,stsurname,stnum));
+						found = true;
+				        	}
+					}
+					
+					if(!found){
+						System.out.printin("record Not Found");
+					}else{
+						System.out.printin("Record is updated......!");
+					}
+					System.out.printin("----------------------------------")
+\
+				breake;
+		}while(ch!=0);
+	}
+  }
