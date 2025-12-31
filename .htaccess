@@ -91,7 +91,4 @@
 </IfModule>
 
 # Disable ETags
-<IfModule mod_headers.c>
-  Header unset ETag
-</IfModule>
 FileETag None
