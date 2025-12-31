@@ -26,12 +26,21 @@ Added the following security headers:
 
 Added security meta tags to all HTML pages:
 - `X-UA-Compatible`: Ensures modern browser rendering
-- `referrer`: Controls referrer information
+- `referrer`: Controls referrer information (strict-origin-when-cross-origin)
 - `X-Content-Type-Options`: Prevents MIME sniffing
 - `format-detection`: Controls automatic detection of phone numbers
 
-### 3. Bug Fix
-Fixed syntax error in Server.js where the `express.static()` call was missing a closing parenthesis.
+Files updated:
+- index.html
+- Services.html
+- about (1).html
+- Enquiry form.html
+- Style.html
+
+### 3. Code Quality Improvements
+- Fixed syntax error in Server.js where the `express.static()` call was missing a closing parenthesis
+- Removed redundant favicon declarations from index.html
+- Removed deprecated X-XSS-Protection header (CSP provides better XSS protection)
 
 ## Allowed External Resources
 
