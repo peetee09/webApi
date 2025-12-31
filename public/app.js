@@ -184,4 +184,13 @@ if (emailInput) {
             emailInput.style.borderColor = 'var(--border-color)';
         }
     });
+    
+    // Clear alert when user corrects the email
+    emailInput.addEventListener('input', () => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailInput.value && emailPattern.test(emailInput.value)) {
+            alertContainer.innerHTML = '';
+            emailInput.style.borderColor = 'var(--border-color)';
+        }
+    });
 }
