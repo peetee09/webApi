@@ -13,12 +13,62 @@ const morgan = require('morgan');
 const app = express();
 
 // Security Middleware
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'", // Required for inline scripts in HTML
+        "https://cdn.jsdelivr.net",
+        "https://unpkg.com",
+        "https://cdnjs.cloudflare.com"
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'", // Required for inline styles
+        "https://cdn.jsdelivr.net",
+        "https://fonts.googleapis.com",
+        "https://cdnjs.cloudflare.com",
+        "https://unpkg.com"
+      ],
+      fontSrc: [
+        "'self'",
+        "https://fonts.gstatic.com",
+        "https://cdn.jsdelivr.net",
+        "https://cdnjs.cloudflare.com"
+      ],
+      imgSrc: [
+        "'self'",
+        "data:",
+        "https:",
+        "https://images.unsplash.com"
+      ],
+      connectSrc: ["'self'", "https://wa.me"],
+      frameSrc: ["'none'"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: []
+    }
+  },
+  crossOriginEmbedderPolicy: false,
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
+
 app.use(cors({
   origin: process.env.CORS_ORIGINS?.split(',') || '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Additional security headers
+app.use((req, res, next) => {
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  next();
+});
 
 // Rate limiting
 const limiter = rateLimit({
@@ -42,7 +92,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
       res.setHeader('Cache-Control', 'no-cache');
     }
   }
-});
+}));
 
 // Database Connection
 mongoose.connect(process.env.MONGODB_URI, {
