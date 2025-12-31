@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
       res.setHeader('Cache-Control', 'no-cache');
     }
   }
-}));
+});
 
 // Database Connection
 mongoose.connect(process.env.MONGODB_URI, {
