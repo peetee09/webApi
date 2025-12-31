@@ -45,17 +45,35 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 // Database Connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000,
-  socketTimeoutMS: 45000
-})
-.then(() => console.log('✅ MongoDB connected successfully'))
-.catch(err => {
-  console.error('❌ MongoDB connection error:', err);
-  process.exit(1);
+const DB_RETRY_INTERVAL = parseInt(process.env.DB_RETRY_INTERVAL) || 10000; // Default 10 seconds
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000
+    });
+    console.log('✅ MongoDB connected successfully');
+  } catch (err) {
+    console.error('❌ MongoDB connection error:', err);
+    console.log(`⚠️  Server will continue running. Retrying MongoDB connection in ${DB_RETRY_INTERVAL / 1000} seconds...`);
+    setTimeout(connectDB, DB_RETRY_INTERVAL);
+  }
+};
+
+// Handle MongoDB connection events
+mongoose.connection.on('disconnected', () => {
+  console.log('⚠️  MongoDB disconnected. Attempting to reconnect...');
 });
+
+mongoose.connection.on('error', (err) => {
+  console.error('❌ MongoDB connection error:', err);
+});
+
+// Initial connection
+connectDB();
 
 // Database Models
 const enquirySchema = new mongoose.Schema({

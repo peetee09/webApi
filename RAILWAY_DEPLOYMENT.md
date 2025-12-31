@@ -2,6 +2,16 @@
 
 This guide will help you deploy the SABI Web API to Railway.
 
+## Features
+
+This application includes Railway-optimized configuration:
+
+- **Automatic Health Checks**: Configured to use `/api/health` endpoint
+- **Resilient MongoDB Connection**: Server starts even if MongoDB is unavailable, with automatic retry
+- **Nixpacks Build**: Explicit build configuration via `nixpacks.toml`
+- **Optimized Deployment**: `.railwayignore` excludes unnecessary files
+- **Graceful Shutdown**: Proper handling of SIGTERM and SIGINT signals
+
 ## Prerequisites
 
 - Railway account (sign up at https://railway.app)
