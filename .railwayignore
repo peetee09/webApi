@@ -1,0 +1,15 @@
+# Ignore unnecessary files for Railway deployment
+.git
+.gitignore
+*.md
+!README.md
+*.png
+*.pptx
+.env.example
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
