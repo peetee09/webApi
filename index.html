@@ -415,6 +415,9 @@
 </head>
 
 <body>
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="visually-hidden-focusable position-absolute top-0 start-0 bg-primary text-white p-2" style="z-index: 10000;">Skip to main content</a>
+  
   <!-- Header -->
   <header class="sticky-top bg-white shadow-sm">
     <div class="container">
@@ -442,27 +445,28 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
+  <section class="hero" role="banner">
+    <div class="container" id="main-content">
       <div class="row align-items-center">
         <div class="col-lg-6" data-aos="fade-right">
           <h1 class="display-4 fw-bold mb-4">Transforming Businesses Through Digital Innovation</h1>
           <p class="lead mb-4">We deliver cutting-edge IT solutions and digital services tailored to help South African businesses thrive in the digital age.</p>
           <div class="d-flex gap-3">
-            <a href="#services" class="btn btn-light btn-lg px-4">Our Services</a>
-            <a href="#contact" class="btn btn-outline-light btn-lg px-4">Get Started</a>
+            <a href="#services" class="btn btn-light btn-lg px-4" aria-label="View our services">Our Services</a>
+            <a href="#contact" class="btn btn-outline-light btn-lg px-4" aria-label="Get started with us">Get Started</a>
           </div>
         </div>
         <div class="col-lg-6" data-aos="fade-left">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Digital transformation" class="img-fluid rounded-3 shadow">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Team collaborating on digital transformation project with graphs on screen" class="img-fluid rounded-3 shadow" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Features Section -->
-  <section class="py-5 bg-light">
+  <section class="py-5 bg-light" aria-labelledby="features-heading">
     <div class="container py-5">
+      <h2 id="features-heading" class="visually-hidden">Why Choose Us</h2>
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up">
           <div class="feature-box text-center p-4">
@@ -617,6 +621,111 @@
           <p class="lead mb-5">Our team of experts is ready to help you navigate the digital landscape and achieve your business goals.</p>
           <a href="#contact" class="btn btn-light btn-lg px-5 py-3 me-3">Get Started</a>
           <a href="tel:+27633428467" class="btn btn-outline-light btn-lg px-5 py-3">Call Us Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-5" aria-labelledby="testimonials-heading">
+    <div class="container py-5">
+      <div class="section-title text-center mb-5">
+        <span class="text-muted">CLIENT TESTIMONIALS</span>
+        <h2 id="testimonials-heading" class="display-5 fw-bold">What Our Clients Say</h2>
+        <p class="lead mx-auto" style="max-width: 700px;">Don't just take our word for it - hear from businesses we've helped transform</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="mb-3">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+              </div>
+              <p class="mb-4">"SABI Tech transformed our entire IT infrastructure. Their team was professional, knowledgeable, and delivered beyond our expectations. Highly recommended!"</p>
+              <div class="d-flex align-items-center">
+                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                  T
+                </div>
+                <div class="ms-3">
+                  <strong>Thabo Mthembu</strong>
+                  <div class="text-muted small">CEO, TechStart Solutions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="mb-3">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+              </div>
+              <p class="mb-4">"The digital marketing services helped us increase our online presence by 300%. The team is responsive and truly understands our business needs."</p>
+              <div class="d-flex align-items-center">
+                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                  S
+                </div>
+                <div class="ms-3">
+                  <strong>Sarah van der Merwe</strong>
+                  <div class="text-muted small">Marketing Director, FreshFoods SA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="mb-3">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+              </div>
+              <p class="mb-4">"Outstanding web development services! They created a beautiful, functional website that perfectly represents our brand. Our sales have increased significantly."</p>
+              <div class="d-flex align-items-center">
+                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                  M
+                </div>
+                <div class="ms-3">
+                  <strong>Mpho Khumalo</strong>
+                  <div class="text-muted small">Owner, African Crafts Boutique</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Stats Section -->
+      <div class="row mt-5 text-center">
+        <div class="col-6 col-md-3 mb-4" data-aos="fade-up">
+          <div class="display-4 fw-bold text-primary">100+</div>
+          <div class="text-muted">Satisfied Clients</div>
+        </div>
+        <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="display-4 fw-bold text-primary">500+</div>
+          <div class="text-muted">Projects Completed</div>
+        </div>
+        <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="display-4 fw-bold text-primary">98%</div>
+          <div class="text-muted">Client Satisfaction</div>
+        </div>
+        <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="display-4 fw-bold text-primary">24/7</div>
+          <div class="text-muted">Support Available</div>
         </div>
       </div>
     </div>

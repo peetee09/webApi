@@ -182,6 +182,29 @@
         .privacy-link:hover {
             text-decoration: underline;
         }
+        .ai-suggestion {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid var(--primary-color);
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .ai-suggestion.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         @media (max-width: 768px) {
             .card-header {
                 padding: 1rem;
@@ -226,8 +249,8 @@
                 
                 <div class="card shadow-sm" id="formCard">
                     <div class="card-header">
-                        <h2 class="h3 mb-1">Service Enquiry Form</h2>
-                        <p class="mb-0 opacity-75">Complete the form below to get started with our services</p>
+                        <h2 class="h3 mb-1">🤖 AI-Powered Service Enquiry Form</h2>
+                        <p class="mb-0 opacity-75">Complete the form below with intelligent assistance to get started with our services</p>
                     </div>
                     <div class="card-body p-4">
                         <!-- Step Indicator -->
@@ -270,8 +293,11 @@
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <label for="full-name" class="form-label required-field">Full Name</label>
-                                            <input type="text" class="form-control" id="full-name" name="Full Name" required>
+                                            <input type="text" class="form-control" id="full-name" name="Full Name" required aria-required="true">
                                             <div class="error-message" id="full-name-error"></div>
+                                            <div class="ai-suggestion" id="name-suggestion">
+                                                💡 <strong>AI Tip:</strong> Use your full legal name for better service
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="job-title" class="form-label">Job Title/Position</label>
@@ -279,8 +305,9 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="organization" class="form-label required-field">Organization Name</label>
-                                            <input type="text" class="form-control" id="organization" name="Organization" required>
+                                            <input type="text" class="form-control" id="organization" name="Organization" required aria-required="true">
                                             <div class="error-message" id="organization-error"></div>
+                                            <div class="ai-suggestion" id="org-suggestion"></div>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="industry" class="form-label required-field">Industry Sector</label>
@@ -584,6 +611,74 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // AI-Powered Suggestions
+            const fullNameInput = document.getElementById('full-name');
+            const organizationInput = document.getElementById('organization');
+            const projectDetailsInput = document.getElementById('project-details');
+            
+            // Show AI suggestions on focus
+            fullNameInput.addEventListener('focus', function() {
+                document.getElementById('name-suggestion').classList.add('show');
+            });
+            
+            fullNameInput.addEventListener('blur', function() {
+                setTimeout(() => {
+                    document.getElementById('name-suggestion').classList.remove('show');
+                }, 3000);
+            });
+            
+            // AI suggestion for organization type
+            organizationInput.addEventListener('input', function() {
+                const value = this.value.toLowerCase();
+                const suggestion = document.getElementById('org-suggestion');
+                
+                if (value.includes('pty') || value.includes('ltd')) {
+                    suggestion.innerHTML = '💡 <strong>AI Detected:</strong> Registered company - Great! You may qualify for corporate rates.';
+                    suggestion.classList.add('show');
+                } else if (value.length > 0) {
+                    suggestion.innerHTML = '💡 <strong>AI Tip:</strong> Include company registration details for faster processing.';
+                    suggestion.classList.add('show');
+                } else {
+                    suggestion.classList.remove('show');
+                }
+            });
+            
+            // AI suggestion for project details
+            let aiProjectTimeout;
+            projectDetailsInput.addEventListener('input', function() {
+                clearTimeout(aiProjectTimeout);
+                const value = this.value.toLowerCase();
+                
+                aiProjectTimeout = setTimeout(() => {
+                    if (value.includes('website') || value.includes('web')) {
+                        showNotification('💡 AI Suggestion: Consider mentioning if you need mobile-responsive design or e-commerce features.', 'info');
+                    } else if (value.includes('security') || value.includes('cctv')) {
+                        showNotification('💡 AI Suggestion: Include the size of your premises for accurate CCTV coverage assessment.', 'info');
+                    } else if (value.includes('marketing') || value.includes('seo')) {
+                        showNotification('💡 AI Suggestion: Mention your target audience and current marketing challenges.', 'info');
+                    } else if (value.includes('network') || value.includes('infrastructure')) {
+                        showNotification('💡 AI Suggestion: Specify the number of users and devices to be connected.', 'info');
+                    }
+                }, 2000);
+            });
+            
+            function showNotification(message, type) {
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+                notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; max-width: 400px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+                notification.innerHTML = `
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+                document.body.appendChild(notification);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    notification.remove();
+                }, 5000);
+            }
+            
             // Form navigation
             const formSections = document.querySelectorAll('.form-section');
             const progressBar = document.querySelector('.progress-bar');
