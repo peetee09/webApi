@@ -3,6 +3,7 @@
 .gitignore
 *.md
 !README.md
+!RAILWAY_DEPLOYMENT.md
 *.png
 *.pptx
 .env.example
