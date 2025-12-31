@@ -1,15 +1,34 @@
-# SABI Web API
+# SABI Web Application
 
-Backend service for SABI enquiry form system built with Express.js and MongoDB.
+Full-stack web application for SABI (South African Business Investment) featuring an enquiry form system with Express.js backend and MongoDB database.
+
+## Project Structure
+
+```
+webApi/
+├── public/              # Frontend files (served statically)
+│   ├── index.html      # Main landing page
+│   ├── about.html      # About page
+│   ├── services.html   # Services page
+│   ├── form.html       # Enquiry form
+│   ├── success.html    # Success page
+│   ├── app.js          # Frontend JavaScript
+│   ├── styles.css      # Styles
+│   ├── sitemap.xml     # SEO sitemap
+│   └── *.png           # Images
+├── Server.js           # Express server
+├── package.json        # Dependencies
+└── .env               # Environment variables (not in git)
+```
 
 ## Features
 
-- RESTful API for enquiry submissions
-- MongoDB database integration
-- Email notifications (client & admin)
-- Rate limiting and security features
-- Admin authentication
-- Input validation and sanitization
+- **Frontend**: Modern responsive website with Bootstrap 5
+- **Backend API**: RESTful API for enquiry submissions
+- **Database**: MongoDB integration with Mongoose
+- **Email**: Automated email notifications (client & admin)
+- **Security**: Rate limiting, CORS, Helmet.js, input validation
+- **Admin Panel**: Protected endpoints for managing enquiries
 
 ## Prerequisites
 
