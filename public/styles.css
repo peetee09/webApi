@@ -49,6 +49,22 @@ body {
     padding: 1rem 20px;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
 .logo h1 {
     font-size: 2rem;
     color: var(--primary-color);
