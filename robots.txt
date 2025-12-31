@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow specific paths
+Disallow: /Server.js
+Disallow: /ftpquota
+
+# Sitemap location
+Sitemap: https://www.sabitech.co.za/sitemap.xml

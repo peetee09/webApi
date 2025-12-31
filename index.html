@@ -3,14 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SABI</title>
-  <meta name="description" content="Leading provider of digital transformation, IT solutions, and business services in South Africa. Empowering businesses with cutting-edge technology.">
-  <meta name="keywords" content="IT solutions, digital marketing, web development, business consulting, South Africa, tech services">
+  <title>SA Business Investment - Leading IT Solutions & Digital Transformation Services in South Africa</title>
+  <meta name="description" content="Transform your business with AI-powered IT solutions, digital marketing, web development, and business consulting services. Award-winning tech partner serving South African businesses with cutting-edge innovation.">
+  <meta name="keywords" content="IT solutions South Africa, digital transformation, AI integration, web development, digital marketing, business consulting, cybersecurity, cloud solutions, CCTV installation, tech services">
+  <meta name="author" content="SA Business Investment">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sabitech.co.za/">
+  <meta property="og:title" content="SA Business Investment - Leading IT Solutions Provider">
+  <meta property="og:description" content="Transform your business with AI-powered IT solutions and digital services. Trusted by businesses across South Africa.">
+  <meta property="og:image" content="https://www.sabitech.co.za/image07.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.sabitech.co.za/">
+  <meta property="twitter:title" content="SA Business Investment - Leading IT Solutions Provider">
+  <meta property="twitter:description" content="Transform your business with AI-powered IT solutions and digital services.">
+  <meta property="twitter:image" content="https://www.sabitech.co.za/image07.png">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SABI Tech">
 
   <!-- Favicons -->
-  <link href="image07.png" type="image/x-icon">
-  <link href="image07.png" rel="icon">
-  <link href="image07.png" rel="image/x-icon">
+  <link href="image07.png" rel="icon" type="image/png">
+  <link href="image07.png" rel="apple-touch-icon">
+  <link href="image07.png" rel="shortcut icon" type="image/png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,7 +163,255 @@
     .footer-links a:hover {
       color: white;
     }
+    
+    /* AI Chatbot Styles */
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    
+    .chatbot-toggle:hover {
+      transform: scale(1.1);
+    }
+    
+    .chatbot-toggle i {
+      color: white;
+      font-size: 24px;
+    }
+    
+    .chatbot-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      max-width: calc(100vw - 40px);
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+      max-height: 500px;
+    }
+    
+    .chatbot-container.active {
+      display: flex;
+      animation: slideUp 0.3s ease;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .chatbot-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 15px;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      max-height: 350px;
+    }
+    
+    .chat-message {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 8px;
+    }
+    
+    .chat-message.bot {
+      justify-content: flex-start;
+    }
+    
+    .chat-message.user {
+      justify-content: flex-end;
+    }
+    
+    .message-content {
+      max-width: 70%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      word-wrap: break-word;
+    }
+    
+    .chat-message.bot .message-content {
+      background: #e9ecef;
+      color: var(--dark);
+    }
+    
+    .chat-message.user .message-content {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .chatbot-input-area {
+      padding: 15px;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .chatbot-input {
+      flex: 1;
+      border: 1px solid #e9ecef;
+      border-radius: 20px;
+      padding: 8px 15px;
+      outline: none;
+    }
+    
+    .chatbot-send {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    .quick-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    
+    .quick-option {
+      background: white;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .quick-option:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Cookie Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      display: none;
+    }
+    
+    .cookie-banner.active {
+      display: block;
+    }
+    
+    /* Loading Animation */
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 10px 14px;
+      background: #e9ecef;
+      border-radius: 12px;
+      width: fit-content;
+    }
+    
+    .typing-indicator span {
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: typing 1.4s infinite;
+    }
+    
+    .typing-indicator span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .typing-indicator span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes typing {
+      0%, 60%, 100% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SA Business Investment",
+    "alternateName": "SABI Tech",
+    "url": "https://www.sabitech.co.za",
+    "logo": "https://www.sabitech.co.za/image07.png",
+    "description": "Leading provider of digital transformation, IT solutions, and business services in South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ZA",
+      "addressRegion": "South Africa"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+27-63-342-8467",
+      "contactType": "customer service",
+      "email": "info@Sabitech.co.za",
+      "availableLanguage": ["English"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/sabitech",
+      "https://twitter.com/sabitech",
+      "https://www.linkedin.com/company/sabitech"
+    ],
+    "areaServed": "ZA",
+    "serviceType": [
+      "IT Solutions",
+      "Digital Marketing",
+      "Web Development",
+      "AI Integration",
+      "CCTV Solutions",
+      "Business Consulting"
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -462,9 +735,52 @@
   </footer>
 
   <!-- Back to Top -->
-  <a href="#" class="btn btn-primary btn-lg back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+  <a href="#" class="btn btn-primary btn-lg back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; display: none !important;" id="backToTop">
     <i class="bi bi-arrow-up"></i>
   </a>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat">
+    <i class="bi bi-chat-dots-fill"></i>
+  </div>
+  
+  <div class="chatbot-container" id="chatbotContainer" role="dialog" aria-labelledby="chatbotTitle">
+    <div class="chatbot-header">
+      <div>
+        <strong id="chatbotTitle">SABI Assistant</strong>
+        <div style="font-size: 0.85rem; opacity: 0.9;">AI-Powered Support</div>
+      </div>
+      <button onclick="closeChatbot()" style="background: transparent; border: none; color: white; cursor: pointer;" aria-label="Close chat">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages"></div>
+    <div class="chatbot-input-area">
+      <input type="text" class="chatbot-input" id="chatInput" placeholder="Type your message..." aria-label="Chat message input">
+      <button class="chatbot-send" onclick="sendMessage()" aria-label="Send message">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="alert">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9">
+          <p class="mb-2 mb-lg-0">
+            <i class="bi bi-shield-check me-2"></i>
+            We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
+            <a href="#" class="text-primary ms-2">Learn more</a>
+          </p>
+        </div>
+        <div class="col-lg-3 text-lg-end">
+          <button class="btn btn-sm btn-outline-secondary me-2" onclick="rejectCookies()">Reject</button>
+          <button class="btn btn-sm btn-primary" onclick="acceptCookies()">Accept All</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -478,14 +794,186 @@
     });
     
     // Back to top button
+    const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', function() {
-      var backToTop = document.querySelector('.back-to-top');
       if (window.pageYOffset > 300) {
-        backToTop.classList.add('show');
+        backToTop.style.display = 'flex';
       } else {
-        backToTop.classList.remove('show');
+        backToTop.style.display = 'none';
       }
     });
+    
+    backToTop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // AI Chatbot functionality
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    
+    let chatHistory = [];
+    
+    chatbotToggle.addEventListener('click', function() {
+      chatbotContainer.classList.toggle('active');
+      if (chatbotContainer.classList.contains('active') && chatHistory.length === 0) {
+        initializeChat();
+      }
+    });
+    
+    function closeChatbot() {
+      chatbotContainer.classList.remove('active');
+    }
+    
+    function initializeChat() {
+      const welcomeMessage = {
+        type: 'bot',
+        text: 'Hello! 👋 I\'m your SABI AI Assistant. How can I help you today?',
+        options: [
+          'Our Services',
+          'Get a Quote',
+          'Contact Info',
+          'Working Hours'
+        ]
+      };
+      addMessage(welcomeMessage);
+    }
+    
+    function addMessage(message) {
+      chatHistory.push(message);
+      
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `chat-message ${message.type}`;
+      
+      const contentDiv = document.createElement('div');
+      contentDiv.className = 'message-content';
+      contentDiv.innerHTML = message.text;
+      
+      messageDiv.appendChild(contentDiv);
+      chatMessages.appendChild(messageDiv);
+      
+      if (message.options && message.type === 'bot') {
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'quick-options';
+        message.options.forEach(option => {
+          const optionBtn = document.createElement('button');
+          optionBtn.className = 'quick-option';
+          optionBtn.textContent = option;
+          optionBtn.onclick = () => handleQuickOption(option);
+          optionsDiv.appendChild(optionBtn);
+        });
+        messageDiv.appendChild(optionsDiv);
+      }
+      
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function handleQuickOption(option) {
+      addMessage({ type: 'user', text: option });
+      
+      setTimeout(() => {
+        showTypingIndicator();
+        setTimeout(() => {
+          removeTypingIndicator();
+          const response = getAIResponse(option);
+          addMessage({ type: 'bot', text: response });
+        }, 1500);
+      }, 300);
+    }
+    
+    function sendMessage() {
+      const message = chatInput.value.trim();
+      if (!message) return;
+      
+      addMessage({ type: 'user', text: message });
+      chatInput.value = '';
+      
+      setTimeout(() => {
+        showTypingIndicator();
+        setTimeout(() => {
+          removeTypingIndicator();
+          const response = getAIResponse(message);
+          addMessage({ type: 'bot', text: response });
+        }, 1500);
+      }, 300);
+    }
+    
+    function showTypingIndicator() {
+      const indicator = document.createElement('div');
+      indicator.className = 'chat-message bot typing-message';
+      indicator.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+      chatMessages.appendChild(indicator);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function removeTypingIndicator() {
+      const indicator = chatMessages.querySelector('.typing-message');
+      if (indicator) indicator.remove();
+    }
+    
+    function getAIResponse(input) {
+      const lowerInput = input.toLowerCase();
+      
+      if (lowerInput.includes('service') || lowerInput === 'Our Services') {
+        return 'We offer a comprehensive range of services including:<br><br>• IT Solutions & Support<br>• Web Development<br>• Digital Marketing<br>• AI Integration<br>• CCTV Solutions<br>• Market Analysis<br><br>Would you like to know more about any specific service?';
+      } else if (lowerInput.includes('quote') || lowerInput === 'Get a Quote') {
+        return 'I\'d be happy to help you get a quote! Please fill out our <a href="Enquiry form.html" target="_blank" style="color: #2563eb;">enquiry form</a> with your requirements, and our team will contact you within 24-48 hours.';
+      } else if (lowerInput.includes('contact') || lowerInput === 'Contact Info') {
+        return 'You can reach us at:<br><br>📧 Email: info@Sabitech.co.za<br>📞 Phone: +27 63 342 8467<br>🌍 Serving all of South Africa<br><br>We typically respond within 24 hours!';
+      } else if (lowerInput.includes('hours') || lowerInput === 'Working Hours') {
+        return 'Our business hours are:<br><br>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed<br><br>For urgent support, please call us directly!';
+      } else if (lowerInput.includes('price') || lowerInput.includes('cost')) {
+        return 'Our pricing varies based on your specific requirements. Each project is unique! To get an accurate quote, please <a href="Enquiry form.html" target="_blank" style="color: #2563eb;">submit an enquiry</a> with details about your needs.';
+      } else if (lowerInput.includes('ai') || lowerInput.includes('artificial intelligence')) {
+        return 'We specialize in AI Integration services including:<br><br>• Process Automation<br>• Predictive Analytics<br>• Natural Language Processing<br>• Machine Learning Solutions<br>• AI-powered Chatbots<br><br>Let us help you leverage AI to transform your business!';
+      } else if (lowerInput.includes('location') || lowerInput.includes('where')) {
+        return 'We are proudly South African! We service businesses throughout South Africa, with a focus on delivering world-class technology solutions to local companies.';
+      } else if (lowerInput.includes('thank')) {
+        return 'You\'re welcome! 😊 Is there anything else I can help you with today?';
+      } else if (lowerInput.includes('hello') || lowerInput.includes('hi')) {
+        return 'Hello! 👋 How can I assist you today? Feel free to ask about our services, pricing, or anything else!';
+      } else {
+        return 'Thank you for your question! For the most accurate information, I recommend:<br><br>1. <a href="Services.html" style="color: #2563eb;">Browse our services</a><br>2. <a href="Enquiry form.html" style="color: #2563eb;">Submit an enquiry</a><br>3. Call us at +27 63 342 8467<br><br>Our team is ready to help! 💼';
+      }
+    }
+    
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+    
+    // Cookie Banner
+    window.addEventListener('load', function() {
+      if (!localStorage.getItem('cookieConsent')) {
+        setTimeout(() => {
+          document.getElementById('cookieBanner').classList.add('active');
+        }, 2000);
+      }
+    });
+    
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookieBanner').classList.remove('active');
+      // Initialize analytics here if needed
+      console.log('Cookies accepted');
+    }
+    
+    function rejectCookies() {
+      localStorage.setItem('cookieConsent', 'rejected');
+      document.getElementById('cookieBanner').classList.remove('active');
+    }
+    
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => console.log('SW registered:', registration))
+          .catch(err => console.log('SW registration failed:', err));
+      });
+    }
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

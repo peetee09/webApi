@@ -3,11 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Services | South African Biz Invest</title>
-  <meta name="description" content="Detailed overview of all our business solutions including IT services, digital marketing, web development and more.">
+  <title>Our Services - IT Solutions, Web Development & Digital Marketing | SA Business Investment</title>
+  <meta name="description" content="Explore our comprehensive range of IT solutions, digital marketing, web development, AI integration, CCTV, and business services. Transform your business with cutting-edge technology.">
+  <meta name="keywords" content="IT support, web development, digital marketing, CCTV installation, AI integration, network design, graphic design, South Africa">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Our Services - SA Business Investment">
+  <meta property="og:description" content="Comprehensive IT solutions and business services tailored for South African businesses">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sabitech.co.za/Services.html">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
   
   <!-- Favicons -->
-  <link href="image07.png" rel="icon">
+  <link href="image07.png" rel="icon" type="image/png">
+  <link href="image07.png" rel="apple-touch-icon">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,20 +77,20 @@
       <nav class="navbar navbar-expand-lg py-3">
         <div class="container-fluid">
           <a class="navbar-brand d-flex align-items-center" href="index.html">
-            <img src="image07.png" alt="Logo" class="me-2" style="height: 40px;">
+            <img src="image07.png" alt="SA Business Investment Logo" class="me-2" style="height: 40px;">
             <span class="fw-bold fs-4" style="color: var(--primary);">SA Biz Invest</span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-            <span class="visually-hidden">Toggle navigation</span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
               <li class="nav-item"><a class="nav-link active" href="Services.html">Services</a></li>
-              <li class="nav-item"><a class="nav-link" href="index.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
             </ul>
+            <a href="Enquiry form.html" class="btn btn-primary ms-lg-3">Enquire Now</a>
           </div>
         </div>
       </nav>
@@ -88,9 +101,15 @@
   <section class="service-hero">
     <div class="container py-5">
       <div class="row align-items-center">
-        <div class="col-lg-8">
+        <div class="col-lg-10">
           <h1 class="display-4 fw-bold mb-3">Comprehensive Business Solutions</h1>
-          <p class="lead mb-4">We offer a complete suite of services designed to help your business thrive in the digital age.</p>
+          <p class="lead mb-4">We offer a complete suite of AI-powered services designed to help your business thrive in the digital age. From IT infrastructure to digital marketing, we've got you covered.</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <span class="badge bg-light text-dark px-3 py-2">🏆 Award-Winning</span>
+            <span class="badge bg-light text-dark px-3 py-2">⚡ Fast Delivery</span>
+            <span class="badge bg-light text-dark px-3 py-2">💯 100+ Satisfied Clients</span>
+            <span class="badge bg-light text-dark px-3 py-2">🤖 AI-Powered</span>
+          </div>
         </div>
       </div>
     </div>
@@ -99,9 +118,27 @@
   <!-- Services Grid -->
   <section class="py-5" id="services-section">
     <div class="container py-5">
-      <div class="row g-4">
+      <!-- Search and Filter -->
+      <div class="row mb-4">
+        <div class="col-lg-8 mx-auto">
+          <div class="input-group input-group-lg shadow-sm">
+            <span class="input-group-text bg-white border-end-0">
+              <i class="bi bi-search"></i>
+            </span>
+            <input type="text" class="form-control border-start-0" id="serviceSearch" placeholder="Search services..." aria-label="Search services">
+          </div>
+          <div class="text-center mt-3">
+            <button class="btn btn-sm btn-outline-primary m-1 filter-btn" data-filter="all">All Services</button>
+            <button class="btn btn-sm btn-outline-primary m-1 filter-btn" data-filter="it">IT & Tech</button>
+            <button class="btn btn-sm btn-outline-primary m-1 filter-btn" data-filter="marketing">Marketing</button>
+            <button class="btn btn-sm btn-outline-primary m-1 filter-btn" data-filter="security">Security</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row g-4" id="servicesGrid">
         <!-- IT Support -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="support technical assistance help troubleshooting network">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-headset"></i>
@@ -114,11 +151,15 @@
               <li>Cybersecurity solutions</li>
               <li>Data recovery</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">24/7 Support</span>
+              <span class="badge bg-success">Fast Response</span>
+            </div>
           </div>
         </div>
         
         <!-- IT Solutions -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="solutions custom software development integration cloud">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-laptop"></i>
@@ -131,11 +172,15 @@
               <li>Cloud computing solutions</li>
               <li>Tailored to your requirements</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Custom Built</span>
+              <span class="badge bg-info text-dark">Scalable</span>
+            </div>
           </div>
         </div>
         
         <!-- Digital Marketing -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="marketing" data-keywords="marketing seo social media advertising content">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-megaphone"></i>
@@ -148,11 +193,15 @@
               <li>Social media management</li>
               <li>Targeted ad campaigns</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">ROI Focused</span>
+              <span class="badge bg-warning text-dark">Data-Driven</span>
+            </div>
           </div>
         </div>
         
         <!-- CCTV Installation -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="security" data-keywords="cctv security cameras surveillance monitoring installation">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-camera-video"></i>
@@ -165,11 +214,15 @@
               <li>High-quality cameras and systems</li>
               <li>Remote monitoring solutions</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-danger">High Security</span>
+              <span class="badge bg-success">24/7 Monitoring</span>
+            </div>
           </div>
         </div>
         
         <!-- Web Development -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="web development websites applications ecommerce responsive">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-code-slash"></i>
@@ -182,11 +235,15 @@
               <li>Brand-focused development</li>
               <li>User experience optimization</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Modern Design</span>
+              <span class="badge bg-success">Mobile-First</span>
+            </div>
           </div>
         </div>
         
         <!-- Market Analysis -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="marketing" data-keywords="market analysis research data insights competitive">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-bar-chart"></i>
@@ -199,11 +256,15 @@
               <li>Competitive analysis</li>
               <li>Strategic recommendations</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Data-Driven</span>
+              <span class="badge bg-info text-dark">Strategic</span>
+            </div>
           </div>
         </div>
         
         <!-- Graphic Design -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="marketing" data-keywords="graphic design branding visual identity logo creative">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-palette"></i>
@@ -216,11 +277,15 @@
               <li>Digital content</li>
               <li>Print collateral</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Creative</span>
+              <span class="badge bg-warning text-dark">Professional</span>
+            </div>
           </div>
         </div>
         
         <!-- Admin Support -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="admin support administrative assistance office management">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-files"></i>
@@ -233,11 +298,15 @@
               <li>Scheduling</li>
               <li>General office support</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Efficient</span>
+              <span class="badge bg-success">Reliable</span>
+            </div>
           </div>
         </div>
         
         <!-- Computer and ICT Training -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="training education learning ict computer skills development">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-mortarboard"></i>
@@ -250,11 +319,15 @@
               <li>Digital literacy</li>
               <li>Custom training programs</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Expert-Led</span>
+              <span class="badge bg-info text-dark">Certified</span>
+            </div>
           </div>
         </div>
         
         <!-- Internet Café -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="internet cafe workspace printing connectivity wifi">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-wifi"></i>
@@ -267,11 +340,15 @@
               <li>Printing facilities</li>
               <li>Conducive environment</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">High-Speed</span>
+              <span class="badge bg-success">Comfortable</span>
+            </div>
           </div>
         </div>
         
         <!-- Printing Services -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="marketing" data-keywords="printing print services documents brochures banners">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-printer"></i>
@@ -284,11 +361,15 @@
               <li>Banners</li>
               <li>Promotional materials</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Quality</span>
+              <span class="badge bg-success">Fast Turnaround</span>
+            </div>
           </div>
         </div>
         
         <!-- PC and Gadgets Sales -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="pc sales gadgets computers laptops devices hardware">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-device-ssd"></i>
@@ -301,11 +382,15 @@
               <li>Wide range of brands</li>
               <li>Options for all budgets</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Best Prices</span>
+              <span class="badge bg-info text-dark">Warranty</span>
+            </div>
           </div>
         </div>
         
         <!-- Network Design -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="network design infrastructure planning optimization security">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-diagram-3"></i>
@@ -318,11 +403,15 @@
               <li>Security-focused design</li>
               <li>Scalable solutions</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Secure</span>
+              <span class="badge bg-success">Scalable</span>
+            </div>
           </div>
         </div>
         
         <!-- Network Installation -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 service-item" data-category="it" data-keywords="network installation setup implementation infrastructure">
           <div class="service-card p-4 h-100">
             <div class="service-icon">
               <i class="bi bi-hdd-network"></i>
@@ -335,6 +424,10 @@
               <li>Industry best practices</li>
               <li>Reliable setup</li>
             </ul>
+            <div class="mt-3">
+              <span class="badge bg-primary">Professional</span>
+              <span class="badge bg-success">Certified</span>
+            </div>
           </div>
         </div>
       </div>
@@ -401,5 +494,96 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Service Search and Filter
+    const searchInput = document.getElementById('serviceSearch');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const serviceItems = document.querySelectorAll('.service-item');
+    
+    // Search functionality
+    searchInput.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      filterServices(searchTerm, currentFilter);
+    });
+    
+    let currentFilter = 'all';
+    
+    // Filter functionality
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active', 'btn-primary'));
+        filterButtons.forEach(btn => btn.classList.add('btn-outline-primary'));
+        this.classList.remove('btn-outline-primary');
+        this.classList.add('btn-primary', 'active');
+        
+        // Filter services
+        currentFilter = this.dataset.filter;
+        filterServices(searchInput.value.toLowerCase(), currentFilter);
+      });
+    });
+    
+    function filterServices(searchTerm, category) {
+      let visibleCount = 0;
+      
+      serviceItems.forEach(item => {
+        const keywords = item.dataset.keywords.toLowerCase();
+        const itemCategory = item.dataset.category;
+        const text = item.textContent.toLowerCase();
+        
+        const matchesSearch = searchTerm === '' || keywords.includes(searchTerm) || text.includes(searchTerm);
+        const matchesCategory = category === 'all' || itemCategory === category;
+        
+        if (matchesSearch && matchesCategory) {
+          item.style.display = '';
+          item.style.animation = 'fadeIn 0.5s ease';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Show "no results" message if needed
+      const grid = document.getElementById('servicesGrid');
+      let noResultsMsg = document.getElementById('noResults');
+      
+      if (visibleCount === 0) {
+        if (!noResultsMsg) {
+          noResultsMsg = document.createElement('div');
+          noResultsMsg.id = 'noResults';
+          noResultsMsg.className = 'col-12 text-center py-5';
+          noResultsMsg.innerHTML = `
+            <i class="bi bi-search fs-1 text-muted"></i>
+            <p class="lead mt-3">No services found matching your criteria</p>
+            <p class="text-muted">Try adjusting your search or filter</p>
+          `;
+          grid.appendChild(noResultsMsg);
+        }
+      } else {
+        if (noResultsMsg) {
+          noResultsMsg.remove();
+        }
+      }
+    }
+    
+    // Add fade in animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // PWA Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('SW registered'))
+          .catch(err => console.log('SW registration failed'));
+      });
+    }
+  </script>
 </body>
 </html>
