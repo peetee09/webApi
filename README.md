@@ -74,6 +74,12 @@ The server will start on http://localhost:5000
 
 ## Deployment to Railway
 
+This application is configured for seamless deployment on Railway with automatic health checks and resilient MongoDB connections.
+
+### Quick Deploy Button
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/peetee09/webApi)
+
 ### Option 1: Deploy from GitHub
 
 1. Push your code to GitHub
@@ -81,7 +87,11 @@ The server will start on http://localhost:5000
 3. Click "New Project"
 4. Select "Deploy from GitHub repo"
 5. Select this repository
-6. Railway will automatically detect the Node.js app and deploy it
+6. Railway will automatically:
+   - Detect the Node.js application
+   - Use the `nixpacks.toml` configuration
+   - Build and deploy using the `railway.json` settings
+   - Set up health checks on `/api/health`
 
 ### Option 2: Deploy using Railway CLI
 
@@ -110,6 +120,8 @@ After deployment, configure the following environment variables in Railway:
 3. Add all the required environment variables from `.env.example`
 
 **Important**: Make sure to set `NODE_ENV=production` for production deployment.
+
+**Note**: Railway automatically provides the `PORT` environment variable, so you don't need to set it manually.
 
 ### MongoDB Setup
 
