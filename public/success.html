@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enquiry submitted successfully">
+    <title>Success - SABI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;">SABI</a></h1>
+                <p class="tagline">Business Solutions & Consulting</p>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Success Section -->
+    <section class="success-section">
+        <div class="container">
+            <div class="success-card">
+                <div class="success-icon">✓</div>
+                <h2>Thank You!</h2>
+                <p class="success-message">Your enquiry has been submitted successfully.</p>
+                <div class="reference-box">
+                    <p><strong>Reference Number:</strong></p>
+                    <p class="reference-number" id="referenceNumber">Loading...</p>
+                </div>
+                <div class="success-details">
+                    <p>We've received your submission and will contact you within 24-48 hours.</p>
+                    <p>A confirmation email has been sent to your email address.</p>
+                    <p>Please keep your reference number for future correspondence.</p>
+                </div>
+                <div class="success-actions">
+                    <a href="index.html" class="btn-primary">Back to Home</a>
+                    <a href="form.html" class="btn-secondary">Submit Another Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SABI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get reference number from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const refNumber = urlParams.get('ref');
+        const refElement = document.getElementById('referenceNumber');
+        
+        if (refNumber) {
+            refElement.textContent = refNumber;
+        } else {
+            refElement.textContent = 'Not available';
+        }
+    </script>
+</body>
+</html>
